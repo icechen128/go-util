@@ -1,10 +1,10 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
 	"net"
 
+	"github.com/icechen128/go-util/bvconn"
 	"github.com/icechen128/go-util/config"
 )
 
@@ -16,15 +16,9 @@ func main() {
 	}
 	for {
 		if conn, err := l.Accept(); err == nil {
-			reader := bufio.NewReader(conn)
-			writer := bufio.NewWriter(conn)
-			go handle(reader, writer)
+			bvconn.NewBVConn(conn)
 		} else {
 			fmt.Println(err)
 		}
 	}
-}
-
-func handle(r *bufio.Reader, w *bufio.Writer) {
-
 }
