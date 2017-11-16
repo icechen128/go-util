@@ -11,8 +11,11 @@ type configFile map[string]ConfigSection
 
 var defConfig configFile
 
-func readFile(filename string) error {
+func init() {
 	defConfig = make(map[string]ConfigSection)
+}
+
+func ReadFile(filename string) error {
 	f, err := os.Open(filename)
 	if err != nil {
 		return err
@@ -71,6 +74,13 @@ func readFile(filename string) error {
 }
 
 func GetValue(sec string, key string) string {
+	section := GetSec(sec)
+	if section != nil {
+		v, has := section[key]
+		if has {
+			return v
+		}
+	}
 	return ""
 }
 
