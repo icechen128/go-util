@@ -1,13 +1,11 @@
 package bvconn
 
-type ConnType int
-
 const (
-	REQUEST_FILE ConnType = iota
+	REQUEST_FILE uint8 = iota
 	REPONSE_FILE
 )
 
 type ReadPre struct {
-	connType ConnType
-	size     int64
+	connType uint8
+	size     uint64
 }

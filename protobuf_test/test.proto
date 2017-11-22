@@ -3,6 +3,7 @@ syntax = "proto3";
 package main;
 
 message MsgServer {
+    sint64 ww = 0;
     string a = 1;
     bytes content = 2;
 }
