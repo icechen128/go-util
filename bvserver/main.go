@@ -21,4 +21,13 @@ func main() {
 			fmt.Println(err)
 		}
 	}
+
+	// // CMD
+	// cmd := exec.Command("ls", "--color=auto") // this opens a gedit-window
+	// data, err := cmd.Output()
+	// if err != nil {
+	// 	fmt.Printf("Error %v executing command!", err)
+	// 	os.Exit(1)
+	// }
+	// fmt.Printf("%v", string(data))
 }
